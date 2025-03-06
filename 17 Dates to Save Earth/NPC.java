@@ -13,6 +13,7 @@ public class NPC extends Actor {
         _name = name;
         _affection = affection;
     }
+    
     private int _affection = 0;
 
     public int getaffection() {
@@ -21,8 +22,8 @@ public class NPC extends Actor {
 
     public void setaffection(int value) {
         _affection = value;
-
     }
+
     private String _name = "";
 
     public String getName() {
