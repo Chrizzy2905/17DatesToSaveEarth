@@ -18,7 +18,7 @@ public class MyWorld extends World
         super(600, 400, 1);
         NPC Richard = new NPC("Richard", 0);
         NPC Bulma = new NPC("Bulma", 10);
-        addObject(Richard,64,64);
-        addObject(Bulma,64,64);
+        addObject(Richard,500,200);
+        addObject(Bulma,100,200);
     }
 }

@@ -12,6 +12,7 @@ public class NPC extends Actor {
     public NPC(String name, int affection) {
         super();
         _image = new GreenfootImage(name + ".png");
+        _image.scale(256, 400);
         setImage(_image);
         _name = name;
         _affection = affection;
