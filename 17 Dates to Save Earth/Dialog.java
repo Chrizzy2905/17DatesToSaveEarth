@@ -14,18 +14,18 @@ public class Dialog extends Actor
 {
     private Boolean _isVisible = true;
     private List _dialogs = new List();
-    
+    private String Prefix = "assets/";
     public Dialog(){
         readFromInputStream();
-        GreenfootImage image = new GreenfootImage("TextBox.png");
-        GreenfootImage characterName = new GreenfootImage("Richard", 100, Color.WHITE, new Color(0,0,0,0));
+        GreenfootImage image = new GreenfootImage(Prefix + "Textbox.png");
+        GreenfootImage characterName = new GreenfootImage("Sarah", 100, Color.BLACK, new Color(0,0,0,0));
         GreenfootImage text = new GreenfootImage(_dialogs.getItem(0), 50, Color.WHITE, new Color(0,0,0,0));
         
-        image.drawImage(characterName, 150, 1050);
+        image.drawImage(characterName, 300, 950);
         
         image.drawImage(text, (image.getWidth() - characterName.getWidth()) / 15, 
         1150);
-        image.scale(600, 400);
+        image.scale(720, 405);
         setImage(image);
     }
     /**

@@ -16,9 +16,9 @@ public class Menu extends World
     public Menu()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1);
+        super(720, 405, 1);
         GreenfootImage bg = new GreenfootImage("SplashScreen.jpg");
-        bg.scale(600, 400);
+        bg.scale(720, 405);
         setBackground(bg);
         
         // Create Menu

@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.ArrayList;
 /**
  * Write a description of class MyWorld here.
  * 
@@ -8,6 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MainScene extends World
 {
+    private String Prefix = "background/";
+    private ArrayList<NPC> NPCs = new ArrayList<NPC>();
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -15,14 +17,14 @@ public class MainScene extends World
     public MainScene()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1);
-        NPC Richard = new NPC("Richard", 0);
-        NPC Bulma = new NPC("Bulma", 10);
-        addObject(Richard,500,200);
-        addObject(Bulma,100,200);
-        addObject(new Dialog(), 300, 200);
-        setBackground("TestBG.jpg");
+        super(720, 405, 1); 
+        NPCs.add(new NPC("Richard", 0));
+        NPCs.add(new NPC("Sarah", 0));
+        addObject(new Dialog(), 350,200 );
         prepare();
+        GreenfootImage background = new GreenfootImage(Prefix + "Cafe.png");
+        background.scale(720,405);
+        setBackground (background);
     }
     /**
      * Prepare the world for the start of the program.
@@ -30,5 +32,6 @@ public class MainScene extends World
      */
     private void prepare()
     {
+        NPCs.forEach(npc -> addObject(npc, 550, 200));
     }
 }
