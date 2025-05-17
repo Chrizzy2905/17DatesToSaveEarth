@@ -1,4 +1,8 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.io.*;
+import java.awt.List;
 
 /**
  * Write a description of class Dialog here.
@@ -9,16 +13,18 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Dialog extends Actor
 {
     private Boolean _isVisible = true;
+    private List _dialogs = new List();
     
     public Dialog(){
+        readFromInputStream();
         GreenfootImage image = new GreenfootImage("TextBox.png");
         GreenfootImage characterName = new GreenfootImage("Richard", 100, Color.WHITE, new Color(0,0,0,0));
-        GreenfootImage text = new GreenfootImage("Hi Hübscher wie geht's? Meow.", 50, Color.WHITE, new Color(0,0,0,0));
+        GreenfootImage text = new GreenfootImage(_dialogs.getItem(0), 50, Color.WHITE, new Color(0,0,0,0));
         
-        image.drawImage(characterName, 150, 500);
+        image.drawImage(characterName, 150, 1050);
         
-        image.drawImage(text, (image.getWidth() - characterName.getWidth()) / 2, 
-        (image.getHeight() - characterName.getHeight())/2);
+        image.drawImage(text, (image.getWidth() - characterName.getWidth()) / 15, 
+        1150);
         image.scale(600, 400);
         setImage(image);
     }
@@ -29,5 +35,19 @@ public class Dialog extends Actor
     public void act()
     {
         // Add your action code here.
+    }
+    
+    private void readFromInputStream()
+    {
+        InputStream input = getClass().getClassLoader().getResourceAsStream("dialogs/Richard.json");
+        try(BufferedReader reader = new BufferedReader(new FileReader("dialogs/Richard.json"))){
+            while(reader.ready()) {
+                 _dialogs.add(reader.readLine());
+            }
+        }
+        catch(IOException ioe)
+        {
+            ioe.printStackTrace();
+        }
     }
 }
