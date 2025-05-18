@@ -1,0 +1,234 @@
+{
+    "actors": [
+        {
+            "id": 0,
+            "name": "Narrator"
+        },
+        {
+            "id": 1,
+            "name": "Player"
+        },
+        {
+            "id": 2,
+            "name": "Richard"
+        },
+        {
+            "id": 3,
+            "name": "Kellner"
+        },
+        {
+            "node": "1",
+            "talker": 0,
+            "text": "y/n schaut sich in dem Skyline Dreh-Restaurant um, auf der Suche nach diesem Richard.",
+            "next_node": "2"
+        },
+        {
+            "node": "2",
+            "talker": 0,
+            "text": "Richard sitzt mit ungerader Haltung an einem Tisch direkt am Fenster und schaut auf sein Handy.",
+            "next_node": "3"
+        },
+        {
+            "node": "3",
+            "talker": 0,
+            "text": "Als y/n sich auf den Stuhl, gegenüber von ihm, setzt, korrigiert er seine Haltung.",
+            "next_node": "4"
+        },
+        {
+            "node": "4",
+            "talker": 2,
+            "text": "Guten Abend.",
+            "next_node": "5"
+        },
+        {
+            "node": "5",
+            "talker": 1,
+            "text": "Hey. Wie geht's dir?",
+            "next_node": "6"
+        },
+        {
+            "node": "6",
+            "talker": 2,
+            "text": "Der typische Tag als Geschäftsmann. Nichts besonderes. Und dir?",
+            "next_node": "7"
+        },
+        {
+            "node": "7",
+            "talker": 1,
+            "text": "Auch.",
+            "next_node": "8"
+        },
+        {
+            "node": "8",
+            "talker": 0,
+            "text": "Beide sind für einen Moment still und meiden Augenkontakt.",
+            "next_node": "9"
+        },
+        {
+            "node": "9",
+            "talker": 1,
+            "text": "Ein Geschäftsmann also? Was macht man da so?",
+            "next_node": "10"
+        },
+        {
+            "node": "10",
+            "talker": 2,
+            "text": " Ich bin Geschäftsführer der Solomon Bank.",
+            "next_node": "11"
+        },
+        {
+            "node": "11",
+            "talker": 1,
+            "text": "Ach, so wie dein Nachname.",
+            "next_node": "12"
+        },
+        {
+            "node": "12",
+            "talker": 2,
+            "text": "Genau.",
+            "next_node": "13"
+        },
+        {
+            "node": "13",
+            "talker": 0,
+            "text": "Ein Kellner kommt zu ihnen an den Tisch.",
+            "next_node": "14"
+        },
+        {
+            "node": "14",
+            "talker": 3,
+            "text": "Wissen Sie schon was sie bestellen wollen?",
+            "next_node": "15"
+        },
+        {
+            "node": "15",
+            "talker": 2,
+            "text": "Ein Wagyu Steak, medium rare, dazu Kavier und eine Flasche Châteauneuf-du-Pape mit zwei Gläsern, bitte.",
+            "next_node": "16"
+        },
+        {
+            "node": "16",
+            "talker": 3,
+            "text": "Gerne, und Sie?",
+            "next_node": "17"
+        },
+        {
+            "node": "17",
+            "talker": 0,
+            "text": "Der Kellner dreht sich zu y/n.",
+            "options": [
+                {
+                    "text": "Einmal Mac & Cheese und eine Cola, bitte.",
+                    "talker": 1,
+                    "next_node": "18"
+                },
+                {
+                    "text": "Eine Trüffel Pasta und noch ein Wasser. Danke.",
+                    "talker": 1,
+                    "next_node": "60"
+                }
+
+            ]
+        },
+        {
+            "node": "18",
+            "talker": 3,
+            "text": "Super. Kommt sofort!",
+            "next_node": "19"
+        },
+        {
+            "node": "19",
+            "talker": 0,
+            "text": "Der Kellner geht zur Küche. Richard schaut y/n mit einem Stirnrunzeln an.",
+            "next_node": "20"
+        },
+        {
+            "node": "20",
+            "talker": 1,
+            "text": "Ist alles in Ordnung?",
+            "next_node": "21"
+        },
+        {
+            "node": "21",
+            "talker": 2,
+            "text": "Mac & Cheese?!",
+            "next_node": "22"
+        },
+        {
+            "node": "22",
+            "talker": 1,
+            "text": "Das schmeckt gut. Außerdem ist nicht jeder reich. Das ist sowieso schon ein teures Restaurant, dann bestelle ich mir nicht auch noch ein besonders teures Gericht.",
+            "next_node": "23"
+        },
+        {
+            "node": "23",
+            "talker": 0,
+            "text": "Richard starrt y/n fassungslos an. Dann seufzt er und legt sein Gesicht in seine Hände, als wäre es ihm peinlich.",
+            "next_node": "24"
+        },
+        {
+            "node": "24",
+            "talker": 0,
+            "text": "Die beiden warten in Stille auf ihr Essen.",
+            "next_node": "25"
+        },
+        {
+            "node": "25",
+            "talker": 0,
+            "text": "Nach zehn Minuten kommt der Kellner mit den Getränken.",
+            "next_node": "26"
+        },
+        {
+            "node": "26",
+            "talker": 3,
+            "text": "Hier einmal die Cola und die Flasche Wein mit zwei Gläsern.",
+            "next_node": "27"
+        },
+        {
+            "node": "27",
+            "talker": 2,
+            "text": "Danke Ihnen.",
+            "next_node": "28"
+        },
+        {
+            "node": "28",
+            "talker": 0,
+            "text": "Nach weiteren zehn Minuten kommt der Kellner erneut zu ihrem Tisch, diesmal mit den fertigen Gerichten.",
+            "next_node": "29"
+        },
+        {
+            "node": "29",
+            "talker": 3,
+            "text": "Und hier das Steak, medium rare, der Kaviar und das Mac & Cheese. Guten Appetit!",
+            "next_node": "30"
+        },
+        {
+            "node": "30",
+            "talker": 2,
+            "text": "Danke.",
+            "next_node": "31"
+        },
+        {
+            "node": "31",
+            "talker": 1,
+            "text": "Vielen Dank.",
+            "next_node": "32"
+        },
+        {
+            "node": "32",
+            "talker": 0,
+            "text": "Der Kellner geht und die beiden fangen an zu Essen, ebenfalls in Stille.",
+            "options": [
+                {
+                    "text"
+                }
+            ]
+
+        }
+        
+
+
+
+
+    ]
+}
