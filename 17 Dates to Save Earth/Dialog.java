@@ -39,8 +39,8 @@ public class Dialog extends Actor
     
     private void readFromInputStream()
     {
-        InputStream input = getClass().getClassLoader().getResourceAsStream("dialogs/Richard.json");
-        try(BufferedReader reader = new BufferedReader(new FileReader("dialogs/Richard.json"))){
+        InputStream input = getClass().getClassLoader().getResourceAsStream("dialogs/Cafe.json");
+        try(BufferedReader reader = new BufferedReader(new FileReader("dialogs/Cafe.json"))){
             while(reader.ready()) {
                  _dialogs.add(reader.readLine());
             }

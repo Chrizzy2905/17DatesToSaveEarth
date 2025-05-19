@@ -10,13 +10,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class NPC extends Actor {
     private GreenfootImage _image;
     private String Prefix = "characters/";
-    public NPC(String name, int affection) {
+    public NPC(String name) {
         super();
         _image = new GreenfootImage(Prefix + name + ".png");
         _image.scale(360, 400);
         setImage(_image);
         _name = name;
-        _affection = affection;
+        
         
         }
     
