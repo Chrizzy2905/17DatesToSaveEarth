@@ -18,18 +18,21 @@ public class Dialog extends Actor
     private ArrayList<Talker> _talker;
     private GreenfootImage image = new GreenfootImage(Prefix + "Textbox.png");
     private Talker _currentTalker;
-    public Dialog(ArrayList<Talker> talker){
-        _talker = talker;
+    private Chatter _chatter;
+    private Node _currentNode;
+    public Dialog(Chatter chatter){
+        _chatter = chatter;
         _currentTalker = new Talker();
         
     }
     public void push(Node node){
-        for(Talker t : _talker){
+        for(Talker t : _chatter.actors){
             if(t.id == (node.talker)){
                 _currentTalker = t;
                 break;
             }
         }
+        image = new GreenfootImage(Prefix + "Textbox.png");
         GreenfootImage characterName = new GreenfootImage(_currentTalker.name, 100, Color.BLACK, new Color(0,0,0,0));
         GreenfootImage text = new GreenfootImage(node.text, 50, Color.WHITE, new Color(0,0,0,0));
         image.drawImage(text, (image.getWidth() - characterName.getWidth()) / 15, 
@@ -37,5 +40,15 @@ public class Dialog extends Actor
         image.drawImage(characterName, 300, 950);
         image.scale(720, 405);
         setImage(image);
+        System.out.println(node.text);
+    }
+    public void next(){
+        if(_currentNode == null){
+            _currentNode = _chatter.nodes.get(0);
+            push(_currentNode);
+        } else{
+            push(_currentNode.next);
+            _currentNode = _currentNode.next;
+        }
     }
 }

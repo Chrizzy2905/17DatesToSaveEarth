@@ -36,9 +36,9 @@ public class MainScene extends World
         NPCs.add(new NPC("Richard"));
         NPCs.add(new NPC("Sarah"));
         NPCs.forEach(npc -> addObject(npc, 550, 200));
-        _dialog = new Dialog(chatter.actors);
+        _dialog = new Dialog(chatter);
         addObject(_dialog, 350,200 );
-        _dialog.push(chatter.nodes.get(0));
+        _dialog.next();
     }
     
     private void fetchDialogs()
@@ -49,5 +49,18 @@ public class MainScene extends World
         .collect(Collectors.joining("\n"));
          Gson gson = new Gson();
          chatter = gson.fromJson(json, Chatter.class);
+         for(Node n : chatter.nodes){
+            for(Node m : chatter.nodes){
+                if(m.node.equals(n.next_node)){
+                    n.next = m;
+                    
+                }
+            }
+            }
     }
+    public void act(){
+         if(Greenfoot.mouseClicked(null)){
+            _dialog.next();
+            }
+    } 
 }

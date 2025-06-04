@@ -10,6 +10,7 @@ public class Node
     public String text;
     public int talker;
     public String next_node;
+    public Node next;
     public Node()
     {
     }
