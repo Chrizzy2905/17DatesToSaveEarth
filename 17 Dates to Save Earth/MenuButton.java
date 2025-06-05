@@ -14,13 +14,14 @@ enum Action {
 
 public class MenuButton extends Actor
 {
+    private String Prefix = "assets/";
     /**
      * Act - do whatever the MenuButton wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public MenuButton(String text, Action action){
         _action = action;
-        GreenfootImage image = new GreenfootImage("MenuButton.png");
+        GreenfootImage image = new GreenfootImage(Prefix + "Menu.png");
         GreenfootImage buttonText = new GreenfootImage(text, 20, Color.WHITE, new Color(0,0,0,0));
         image.scale(150, 30);
         image.drawImage(buttonText, (image.getWidth() - buttonText.getWidth()) / 2, 

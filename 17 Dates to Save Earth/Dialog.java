@@ -40,7 +40,6 @@ public class Dialog extends Actor
         image.drawImage(characterName, 300, 950);
         image.scale(720, 405);
         setImage(image);
-        System.out.println(node.text);
     }
     public void next(){
         if(_currentNode == null){

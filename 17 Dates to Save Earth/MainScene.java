@@ -50,13 +50,21 @@ public class MainScene extends World
          Gson gson = new Gson();
          chatter = gson.fromJson(json, Chatter.class);
          for(Node n : chatter.nodes){
-            for(Node m : chatter.nodes){
-                if(m.node.equals(n.next_node)){
-                    n.next = m;
-                    
+            if(n.options != null){
+              for(Option o : n.options){
+                    o.next = findNextNode(o.next_node,chatter.nodes);
+                }  
+            }
+             n.next = findNextNode(n.next_node,chatter.nodes);
+            }
+    }
+    private Node findNextNode(String node,ArrayList<Node> nodes){
+        for(Node m : nodes){
+                if(m.node.equals(node)){
+                    return m;
                 }
             }
-            }
+         return null;   
     }
     public void act(){
          if(Greenfoot.mouseClicked(null)){
