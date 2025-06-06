@@ -1,11 +1,5 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
-/**
- * Write a description of class MenuButton here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 enum Action {
     NEWGAME,
     LOAD,
@@ -15,10 +9,8 @@ enum Action {
 public class MenuButton extends Actor
 {
     private String Prefix = "assets/";
-    /**
-     * Act - do whatever the MenuButton wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    private Action _action = Action.NEWGAME;
+ 
     public MenuButton(String text, Action action){
         _action = action;
         GreenfootImage image = new GreenfootImage(Prefix + "Menu.png");
@@ -30,25 +22,23 @@ public class MenuButton extends Actor
         setImage(image);
         
     }
-    private Action _action = Action.NEWGAME;
     
     public void act()
     {
         if(Greenfoot.mouseClicked(this)){
             switch(_action){
-                case Action.NEWGAME:
+                case NEWGAME:
                     Greenfoot.setWorld(new MainScene());
                     break;
-                case Action.LOAD:
+                case LOAD:
                     System.out.println("Load pressed");
                     break;
-                case Action.EXIT:
+                case EXIT:
                     System.out.println("Exit pressed");
                     break;
                 default:
                     System.out.println("Exit pressed");
             }
         }
-        // Add your action code here.
     }
 }

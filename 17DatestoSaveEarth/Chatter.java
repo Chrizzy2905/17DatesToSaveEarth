@@ -1,10 +1,5 @@
-/**
- * Write a description of class Chatter here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 import java.util.ArrayList;
+
 public class Chatter  
 {
     public String start_node;
@@ -14,6 +9,4 @@ public class Chatter
     public Chatter()
     {
     }
-
-
 }

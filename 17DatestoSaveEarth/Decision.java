@@ -1,6 +1,4 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
-
+import greenfoot.*;
 
 public class Decision extends Actor
 {
@@ -13,13 +11,9 @@ public class Decision extends Actor
         (image.getHeight() - buttonText.getHeight())/2);
         setImage(image);
     }
-    /**
-     * Act - do whatever the Decision wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+
     public void act()
     {
         
     }
-    
 }
