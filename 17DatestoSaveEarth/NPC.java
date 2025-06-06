@@ -9,7 +9,7 @@ public class NPC extends Actor {
     public NPC(String name) {
         super();
         _image = new GreenfootImage(Prefix + name + ".png");
-        _image.scale(360, 400);
+        _image.scale(Enviroment.RES_X / 100 * 50, Enviroment.RES_Y);
         setImage(_image);
         _name = name;
     }

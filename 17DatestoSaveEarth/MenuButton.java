@@ -14,8 +14,8 @@ public class MenuButton extends Actor
     public MenuButton(String text, Action action){
         _action = action;
         GreenfootImage image = new GreenfootImage(Prefix + "Menu.png");
-        GreenfootImage buttonText = new GreenfootImage(text, 20, Color.WHITE, new Color(0,0,0,0));
-        image.scale(150, 30);
+        GreenfootImage buttonText = new GreenfootImage(text, 40, Color.WHITE, new Color(0,0,0,0));
+        image.scale(Enviroment.RES_X / 100 * 25, 60);
         image.drawImage(buttonText, (image.getWidth() - buttonText.getWidth()) / 2, 
         (image.getHeight() - buttonText.getHeight())/2);
         

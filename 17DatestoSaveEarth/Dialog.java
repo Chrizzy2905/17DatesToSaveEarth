@@ -23,20 +23,23 @@ public class Dialog extends Actor {
         image = new GreenfootImage(Prefix + "Textbox.png");
         GreenfootImage characterName = new GreenfootImage(_currentTalker.name, 100, Color.BLACK, new Color(0, 0, 0, 0));
         GreenfootImage text = new GreenfootImage(node.text, 50, Color.WHITE, new Color(0, 0, 0, 0));
-        image.drawImage(text, (image.getWidth() - characterName.getWidth()) / 15,
-                1150);
+        image.drawImage(text, (image.getWidth() - characterName.getWidth()) / 15, 1150);
         image.drawImage(characterName, 300, 950);
-        image.scale(720, 405);
+        image.scale(Enviroment.RES_X, Enviroment.RES_Y);
         setImage(image);
     }
 
-    public void next() {
+    public boolean next() {
         if (_currentNode == null) {
             _currentNode = _chatter.nodes.get(0);
             push(_currentNode);
         } else {
+            if (null == _currentNode.next) {
+                return false; // No next node, end of dialog
+            }
             push(_currentNode.next);
             _currentNode = _currentNode.next;
         }
+        return true; // Successfully moved to the next dialog node
     }
 }

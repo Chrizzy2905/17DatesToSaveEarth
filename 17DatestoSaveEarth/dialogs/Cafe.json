@@ -39,7 +39,7 @@
         {
             "node": "4",
             "talker": 2,
-            "text": "Deine Unsicherheiten erstaunen mich immer wieder. Du bist doch ein toller Mensch. Ich wette, wenn du mal jemanden ansprechen würdest, würde auch ein Date entstehen.",
+            "text": "Deine Unsicherheiten erstaunen mich immer wieder.\nDu bist doch ein toller Mensch.Ich wette, wenn du mal\n jemanden ansprechen würdest, würde auch ein Date entstehen.",
             "next_node": "5"
         },
         {
