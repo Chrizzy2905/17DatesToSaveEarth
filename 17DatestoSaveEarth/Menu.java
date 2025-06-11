@@ -15,14 +15,5 @@ public class Menu extends World
         // addObject(loadGame, 100, 240);
         MenuButton exitGame = new MenuButton("Exit", Action.EXIT);
         addObject(exitGame, Enviroment.RES_X / 100 * 20, Enviroment.RES_Y / 100 * 65);
-        prepare();
-    }
-    
-    /**
-     * Prepare the world for the start of the program.
-     * That is: create the initial objects and add them to the world.
-     */
-    private void prepare()
-    {
     }
 }

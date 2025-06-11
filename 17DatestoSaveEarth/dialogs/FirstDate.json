@@ -23,7 +23,10 @@
         {
             "id": 5,
             "name": "Richard und Spieler"
-        },
+        }
+    ],
+    "start_node": "1",
+    "nodes": [
         {
             "node": "1",
             "talker": 0,
@@ -133,7 +136,6 @@
                     "text": "Eine Trüffel Pasta und noch ein Wasser. Danke.",
                     "next_node": "69"
                 }
-
             ]
         },
         {
@@ -234,7 +236,6 @@
                     "next_node": "49"
                 }
             ]
-
         },
         {
             "node": "33",
@@ -342,7 +343,6 @@
             "talker": 1,
             "text": "Und.. Wie geht es dir so?",
             "next_node": "50"
-
         },
         {
             "node": "50",
@@ -462,7 +462,6 @@
             "node": "68",
             "talker": 1,
             "text": "Kein Problem, ich wollte sowieso gerade gehen."
-
         },
         {
             "node": "69",
@@ -748,7 +747,6 @@
             ]
         },
         {
-
             "node": "112",
             "talker": 0,
             "text": "Du hälst deine Vergangenheit privat.",
@@ -844,7 +842,6 @@
             "next_node": "128"
         },
         {
-
             "node": "128",
             "talker": 1,
             "text": "Der hat nur getrunken und unser Geld für seinen Konsum verprasst. Einen Job konnte er Alkoholiker auch nicht wirklich ausführen.",
@@ -915,9 +912,5 @@
             "talker": 0,
             "text": "Sie verabreden sich für ein zweites Treffen."
         }
-
-
-
-
     ]
 }

@@ -21,14 +21,12 @@
             "talker": 1,
             "text": "Ich fühl mich so einsam. Warum fragt mich niemand nach einem Date?",
             "next_node": "2"
-
         },
         {
             "node": "2",
             "talker": 2,
             "text": "Du könntest das auch einfach selbst in die Hand nehmen.",
             "next_node": "3"
-
         },
         {
             "node": "3",
@@ -39,7 +37,7 @@
         {
             "node": "4",
             "talker": 2,
-            "text": "Deine Unsicherheiten erstaunen mich immer wieder.\nDu bist doch ein toller Mensch.Ich wette, wenn du mal\n jemanden ansprechen würdest, würde auch ein Date entstehen.",
+            "text": "Deine Unsicherheiten erstaunen mich immer wieder. Du bist doch ein toller Mensch. Ich wette, wenn du mal jemanden ansprechen würdest, würde auch ein Date entstehen.",
             "next_node": "5"
         },
         {

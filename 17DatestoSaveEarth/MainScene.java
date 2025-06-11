@@ -12,8 +12,16 @@ public class MainScene extends World {
     private GreenfootSound Audio = new GreenfootSound("Cafe.mp3");
     private Chatter chatter;
     private Dialog _dialog;
-
+    private ArrayList<SceneData> _scenes = new ArrayList<SceneData>(){
+        {
+            add(new SceneData("prologe.png", "Cafe.mp3", "dialogs/Cafe.json"));
+            add(new SceneData("restaurant.png", "FirstDate.mp3", "dialogs/FirstDate.json"));
+            add(new SceneData("restaurant.png", "SecondDate.mp3", "dialogs/SecondDate.json"));
+            add(new SceneData("ending.png", "MainMenu.mp3", ""));
+        }
+    };
     
+    private SceneData _currentScene = _scenes.get(0);
 
     public MainScene() {
         super(Enviroment.RES_X, Enviroment.RES_Y, 1);
@@ -21,16 +29,18 @@ public class MainScene extends World {
     }
 
     private void prepare() {
-        fetchDialogs("dialogs/Cafe.json");
-        GreenfootImage background = new GreenfootImage(Prefix + "prologe.png");
+        fetchDialogs(_currentScene._dialogPath);
+        GreenfootImage background = new GreenfootImage(Prefix + _currentScene._backgroundImagePath);
         background.scale(Enviroment.RES_X, Enviroment.RES_Y);
         setBackground(background);
         Audio.play();
         NPCs.add(new NPC("Richard"));
         NPCs.add(new NPC("Sarah"));
-        NPCs.forEach(npc -> addObject(npc, Enviroment.RES_X / 100 * 80, Enviroment.RES_Y - Enviroment.RES_Y / 2));
+        addObject(NPCs.get(0), Enviroment.RES_X / 100 * 80, Enviroment.RES_Y - Enviroment.RES_Y / 2);
+        addObject(NPCs.get(1), Enviroment.RES_X / 100 * 20, Enviroment.RES_Y - Enviroment.RES_Y / 2);
+        NPCs.forEach(npc -> npc.setVisible(false));
         _dialog = new Dialog(chatter);
-        addObject(_dialog, Enviroment.RES_X/2, Enviroment.RES_Y - Enviroment.RES_Y / 2);
+        addObject(_dialog, Enviroment.RES_X / 2, Enviroment.RES_Y - Enviroment.RES_Y / 2);
         _dialog.next();
     }
 
@@ -64,18 +74,47 @@ public class MainScene extends World {
 
     public void act() {
         if (Greenfoot.mouseClicked(null)) {
-            if (!_dialog.next()){
+            if (!_dialog.next()) {
                 nextScene();
+            } else {
+                System.out.println("current talker: " + _dialog._currentTalker.name);
+                switch (_dialog._currentTalker.name) {
+                    case "Richard":
+                    case "Richard und Spieler":
+                        NPCs.get(0).setVisible(true);
+                        break;
+                    case "Sarah":
+                        NPCs.get(1).setVisible(true);
+                        break;
+                    case "Player":
+                    case "Narrator":
+                    case "Kellner":
+                    case "Manager":
+                        break;
+                    default:
+                        System.out.println("Unknown character is talking");
+                }
+
+                if(_dialog._currentNode.options != null) {
+                    int offsetY = -80;
+                    for (Option o : _dialog._currentNode.options) {
+                       addObject(new Decision(o.text), Enviroment.RES_X/2, Enviroment.RES_Y / 4 + offsetY);
+                       offsetY+= 80;
+                    }
+                }
             }
         }
     }
 
     private void nextScene() {
-        changeScenario("restaurant", "FirstDate.mp3", "dialogs/FirstDate.json");
+        _currentScene = _scenes.get((_scenes.indexOf(_currentScene) + 1) % _scenes.size());
+        changeScenario(_currentScene._backgroundImagePath, _currentScene._audioPath, _currentScene._dialogPath);
     }
 
     private void changeScenario(String backgroundPath, String audioPath, String dialogPath) {
+        NPCs.forEach(npc -> npc.setVisible(false));
         fetchDialogs(dialogPath);
+        _dialog.reset(chatter);
         GreenfootImage background = new GreenfootImage(Prefix + backgroundPath);
         background.scale(Enviroment.RES_X, Enviroment.RES_Y);
         setBackground(background);

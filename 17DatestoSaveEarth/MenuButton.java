@@ -20,7 +20,6 @@ public class MenuButton extends Actor
         (image.getHeight() - buttonText.getHeight())/2);
         
         setImage(image);
-        
     }
     
     public void act()

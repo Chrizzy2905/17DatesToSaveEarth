@@ -1,16 +1,23 @@
 import greenfoot.*;
 
 public class Dialog extends Actor {
-    private Boolean _isVisible = true;
     private String Prefix = "assets/";
     private GreenfootImage image = new GreenfootImage(Prefix + "Textbox.png");
-    private Talker _currentTalker;
+    public Talker _currentTalker;
     private Chatter _chatter;
-    private Node _currentNode;
+    public Node _currentNode;
 
     public Dialog(Chatter chatter) {
         _chatter = chatter;
         _currentTalker = new Talker();
+    }
+
+   public void setVisible(boolean visible) {
+        if (visible) {
+            getImage().setTransparency(255);
+        } else {
+            getImage().setTransparency(0);
+        }
     }
 
     public void push(Node node) {
@@ -33,13 +40,24 @@ public class Dialog extends Actor {
         if (_currentNode == null) {
             _currentNode = _chatter.nodes.get(0);
             push(_currentNode);
-        } else {
-            if (null == _currentNode.next) {
+        } 
+        else {
+             if (null == _currentNode.next) {
+                System.out.println("setVisible(false)");
+                setVisible(false);
                 return false; // No next node, end of dialog
-            }
-            push(_currentNode.next);
-            _currentNode = _currentNode.next;
-        }
+             }
+             else {
+                 _currentNode = _currentNode.next;
+                 push(_currentNode);
+             }
+         }
         return true; // Successfully moved to the next dialog node
+    }
+
+    public void reset(Chatter nextChatter) {
+        _chatter = nextChatter;
+        _currentNode = null;
+        _currentTalker = new Talker();
     }
 }

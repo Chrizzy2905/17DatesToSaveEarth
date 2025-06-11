@@ -20,7 +20,11 @@ public class NPC extends Actor {
         return _name;
     }
 
-    public void act() {
-
+    public void setVisible(boolean visible) {
+        if (visible) {
+            getImage().setTransparency(255);
+        } else {
+            getImage().setTransparency(0);
+        }
     }
 }
