@@ -13,7 +13,7 @@ public class MainScene extends World {
     private Chatter chatter;
     private Dialog _dialog;
     private boolean _isDecision = false;
-
+    private ArrayList<Decision> _decisions = new ArrayList<Decision>();
     private ArrayList<SceneData> _scenes = new ArrayList<SceneData>() {
         {
             add(new SceneData("prologe.png", "Cafe.mp3", "dialogs/Cafe.json"));
@@ -100,8 +100,10 @@ public class MainScene extends World {
                     _isDecision = true;
                     int offsetY = -80;
                     for (Option o : _dialog._currentNode.options) {
-                        addObject(new Decision(_dialog, o), Enviroment.RES_X / 2, Enviroment.RES_Y / 2 + offsetY);
+                        Decision temp = new Decision(_dialog,o, _decisions);
+                        addObject(temp,Enviroment.RES_X / 2, Enviroment.RES_Y / 2 + offsetY);
                         offsetY += 80;
+                        _decisions.add(temp);
                     }
                 }
             }
