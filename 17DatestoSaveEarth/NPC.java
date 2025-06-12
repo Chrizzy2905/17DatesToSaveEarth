@@ -9,7 +9,8 @@ public class NPC extends Actor {
     public NPC(String name) {
         super();
         _image = new GreenfootImage(Prefix + name + ".png");
-        _image.scale(Enviroment.RES_X / 100 * 50, Enviroment.RES_Y);
+        System.out.println(_image.getWidth() + "x" + _image.getHeight());
+        scaleToHeight(_image, Enviroment.RES_Y);
         setImage(_image);
         _name = name;
     }
@@ -18,6 +19,10 @@ public class NPC extends Actor {
 
     public String getName() {
         return _name;
+    }
+
+    public static void scaleToHeight(GreenfootImage img, int height) {
+        img.scale((int)(img.getWidth() * height / (double)img.getHeight()), height);
     }
 
     public void setVisible(boolean visible) {

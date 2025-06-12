@@ -27,6 +27,10 @@ public class MenuButton extends Actor
         if(Greenfoot.mouseClicked(this)){
             switch(_action){
                 case NEWGAME:
+                    String playerName = Greenfoot.ask("Wie soll dein Charakter heißen?");
+                    if (playerName.length() > 0){
+                        Enviroment.PLAYER_NAME = playerName;
+                    }
                     Greenfoot.setWorld(new MainScene());
                     break;
                 case LOAD:

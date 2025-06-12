@@ -28,10 +28,13 @@ public class Dialog extends Actor {
             }
         }
         image = new GreenfootImage(Prefix + "Textbox.png");
+        if(_currentTalker.name.equals("Player")) {
+            _currentTalker.name = Enviroment.PLAYER_NAME;
+        }
         GreenfootImage characterName = new GreenfootImage(_currentTalker.name, 100, Color.BLACK, new Color(0, 0, 0, 0));
         GreenfootImage text = new GreenfootImage(node.text, 50, Color.WHITE, new Color(0, 0, 0, 0));
         image.drawImage(text, (image.getWidth() - characterName.getWidth()) / 15, 1150);
-        image.drawImage(characterName, 300, 950);
+        image.drawImage(characterName, 200, 950);
         image.scale(Enviroment.RES_X, Enviroment.RES_Y);
         setImage(image);
     }

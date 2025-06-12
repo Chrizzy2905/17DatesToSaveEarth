@@ -12,7 +12,9 @@ public class MainScene extends World {
     private GreenfootSound Audio = new GreenfootSound("Cafe.mp3");
     private Chatter chatter;
     private Dialog _dialog;
-    private ArrayList<SceneData> _scenes = new ArrayList<SceneData>(){
+    private boolean _isDecision = false;
+
+    private ArrayList<SceneData> _scenes = new ArrayList<SceneData>() {
         {
             add(new SceneData("prologe.png", "Cafe.mp3", "dialogs/Cafe.json"));
             add(new SceneData("restaurant.png", "FirstDate.mp3", "dialogs/FirstDate.json"));
@@ -20,7 +22,7 @@ public class MainScene extends World {
             add(new SceneData("ending.png", "MainMenu.mp3", ""));
         }
     };
-    
+
     private SceneData _currentScene = _scenes.get(0);
 
     public MainScene() {
@@ -36,8 +38,8 @@ public class MainScene extends World {
         Audio.play();
         NPCs.add(new NPC("Richard"));
         NPCs.add(new NPC("Sarah"));
-        addObject(NPCs.get(0), Enviroment.RES_X / 100 * 80, Enviroment.RES_Y - Enviroment.RES_Y / 2);
-        addObject(NPCs.get(1), Enviroment.RES_X / 100 * 20, Enviroment.RES_Y - Enviroment.RES_Y / 2);
+        addObject(NPCs.get(0), Enviroment.RES_X / 100 * 50, Enviroment.RES_Y - Enviroment.RES_Y / 2);
+        addObject(NPCs.get(1), Enviroment.RES_X / 100 * 50, Enviroment.RES_Y - Enviroment.RES_Y / 2);
         NPCs.forEach(npc -> npc.setVisible(false));
         _dialog = new Dialog(chatter);
         addObject(_dialog, Enviroment.RES_X / 2, Enviroment.RES_Y - Enviroment.RES_Y / 2);
@@ -73,11 +75,10 @@ public class MainScene extends World {
     }
 
     public void act() {
-        if (Greenfoot.mouseClicked(null)) {
+        if (Greenfoot.mouseClicked(null) && !_isDecision) {
             if (!_dialog.next()) {
                 nextScene();
             } else {
-                System.out.println("current talker: " + _dialog._currentTalker.name);
                 switch (_dialog._currentTalker.name) {
                     case "Richard":
                     case "Richard und Spieler":
@@ -95,11 +96,12 @@ public class MainScene extends World {
                         System.out.println("Unknown character is talking");
                 }
 
-                if(_dialog._currentNode.options != null) {
+                if (_dialog._currentNode.options != null) {
+                    _isDecision = true;
                     int offsetY = -80;
                     for (Option o : _dialog._currentNode.options) {
-                       addObject(new Decision(o.text), Enviroment.RES_X/2, Enviroment.RES_Y / 4 + offsetY);
-                       offsetY+= 80;
+                        addObject(new Decision(_dialog, o), Enviroment.RES_X / 2, Enviroment.RES_Y / 2 + offsetY);
+                        offsetY += 80;
                     }
                 }
             }
